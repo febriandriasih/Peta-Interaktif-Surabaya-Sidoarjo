@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "TitikKabKota",
-"features": [
-  {"type": "Feature", "properties": {"X": 112.7469418, "Y": -7.259128593, "KAB_KOTA": "Kota Surabaya", "PROVINSI": "Jawa Timur", "LOGO": "Surabaya.png"}, "geometry": {"type": "Point", "coordinates": [112.7469418, -7.2591286]}},
-  {"type": "Feature", "properties": {"X": 112.7176832, "Y": -7.446164543, "KAB_KOTA": "Kabupaten Sidoarjo", "PROVINSI": "Jawa Timur", "LOGO": "Sidoarjo.png"}, "geometry": {"type": "Point", "coordinates": [112.7176832, -7.4461645]}}
-]
-}
