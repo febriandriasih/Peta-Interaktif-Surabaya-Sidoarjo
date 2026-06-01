@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Judul pada tab browser -->
+    <title>LeafletJS</title>
+
+    <!-- Leaflet CSS Library -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+
+    <!-- Style untuk tampilan peta fullscreen -->
+    <style>
+      html,
+      body,
+      #map {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Leaflet JavaScript Library -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- HTML Block untuk menampilkan peta -->
+    <div id="map"></div>
+    <script>
+      /* Initial Map */
+      var map = L.map("map").setView(
+        [-7.799333634363571, 110.37554219432286],
+        10
+      ); //lat, long, zoom
+
+      /* Tile Basemap */
+      var basemap = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          //attribution akan muncul di pojok kanan bawah
+          attribution:
+            '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://www.unsorry.net" target="_blank">unsorry@2022</a>',
+        }
+      );
+      basemap.addTo(map); //Memanggil basemap untuk ditampilkan ketika halaman dipanggil
+
+      var GoogleStreets = L.tileLayer(
+        "https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+        {
+          maxZoom: 20,
+          subdomains: ["mt0", "mt1", "mt2", "mt3"],
+          attribution: "Google Streets",
+        }
+      );
+      GoogleStreets.addTo(map); //Memanggil basemap untuk ditampilkan ketika halaman dipanggil
+
+      // Layer Control
+      var baseMaps = {
+        "OpenStreetMap": basemap,
+        "Google Streets": GoogleStreets,
+      };
+
+      L.control.layers(baseMaps).addTo(map);
+
+    </script>
+  </body>
+</html>
